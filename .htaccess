@@ -232,15 +232,15 @@
         Deny from all
 
     </Files>
-	www\.cn\.loca\l.tres-bien\.com
-SetEnvIf Host www\.cn\.loca\l.tres-bien\.com MAGE_RUN_CODE=cn
-SetEnvIf Host www\.cn\.loca\l.tres-bien\.com MAGE_RUN_TYPE=website
-SetEnvIf Host cn\.loca\l.tres-bien\.com MAGE_RUN_CODE=cn
-SetEnvIf Host cn\.loca\l.tres-bien\.com MAGE_RUN_TYPE=website
+	
+SetEnvIf Host www\.cn\.local\.tres-bien\.com MAGE_RUN_CODE=cn
+SetEnvIf Host www\.cn\.local\.tres-bien\.com MAGE_RUN_TYPE=website
+SetEnvIf Host cn\.local\.tres-bien\.com MAGE_RUN_CODE=cn
+SetEnvIf Host cn\.local\.tres-bien\.com MAGE_RUN_TYPE=website
 
-SetEnvIf Host www\.kr\.loca\l.tres-bien\.com MAGE_RUN_CODE=kr
-SetEnvIf Host www\.kr\.loca\l.tres-bien\.com MAGE_RUN_TYPE=website
-SetEnvIf Host kr\.loca\l.tres-bien\.com MAGE_RUN_CODE=kr
-SetEnvIf Host kr\.loca\l.tres-bien\.com MAGE_RUN_TYPE=website
+SetEnvIf Host www\.kr\.local\.tres-bien\.com MAGE_RUN_CODE=kr
+SetEnvIf Host www\.kr\.local\.tres-bien\.com MAGE_RUN_TYPE=website
+SetEnvIf Host kr\.local\.tres-bien\.com MAGE_RUN_CODE=kr
+SetEnvIf Host kr\.local\.tres-bien\.com MAGE_RUN_TYPE=website
 
 
