@@ -6,15 +6,4 @@
 			<codePool>local</codePool>
 		</SmartLap_Createcate>
 	</modules>
-	<global>
-		<models>
-			<createcate>
-				<class>SmartLap_Createcate_Model</class>
-				<resourceModel>createcate_resource</resourceModel>
-			</createcate>
-			<createcate_resource>
-				<class>SmartLap_Createcate_Model_Resource</class>
-			</createcate_resource>
-		</models>
-	</global>
 </config>
