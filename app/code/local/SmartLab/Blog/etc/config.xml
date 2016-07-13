@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <SmartLab_Blog>
+            <version>0.1.0</version>
+        </SmartLab_Blog>
+    </modules>
+    <frontend>
+        <routers>
+            <blog>
+                <use>standard</use>
+                <args>
+                    <module>SmartLab_Blog</module>
+                    <frontName>myblog</frontName>
+                </args>
+            </blog>
+        </routers>
+        <layout>
+            <updates>
+                <blog>
+                    <file>blog.xml</file>
+                </blog>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <blog>
+                <class>SmartLab_Blog_Model</class>
+                <resourceModel>album_resource</resourceModel>
+            </blog>
+            <blog_resource>
+                <class>SmartLab_Blog_Model_Resource</class>
+            </blog_resource>
+        </models>
+        <blocks>
+            <blog>
+                <class>SmartLab_Blog_Block</class>
+            </blog>
+        </blocks>
+        <helpers>
+            <blog>
+            <class>SmartLab_Blog_Helper</class>
+            </blog>
+        </helpers>
+    </global>
+</config>
