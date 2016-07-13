@@ -127,3 +127,4 @@ var/
 shell/
 lib/
 dev/
+.idea/
