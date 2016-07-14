@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <config>
 	<modules>
-		<SmartLap_Createcate>
+		<SmartLab_Createcate>
 			<version>0.1.4</version>
-		</SmartLap_Createcate>
+		</SmartLab_Createcate>
 	</modules>
 	<frontend>
 		<routers>
 			<createcate>
                 <use>standard</use>
                 <args>
-                    <module>SmartLap_Createcate</module>
+                    <module>SmartLab_Createcate</module>
                     <frontName>createcate</frontName>
                 </args>
             </createcate>
@@ -19,17 +19,17 @@
 	<global>
 		<models>
 			<createcate>
-				<class>SmartLap_Createcate_Model</class>
+				<class>SmartLab_Createcate_Model</class>
 				<resourceModel>createcate_resource</resourceModel>
 			</createcate>
 			<create_resource>
-				<class>SmartLap_Createcate_Model_Resource</class>
+				<class>SmartLab_Createcate_Model_Resource</class>
 			</create_resource>
 		</models>
 		<resources>
             <createcate_setup>
                 <setup>
-                    <module>SmartLap_Createcate</module>
+                    <module>SmartLab_Createcate</module>
                 </setup>
                 <connection>
                     <use>core_setup</use>
