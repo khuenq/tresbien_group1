@@ -10,7 +10,6 @@
   # This file may not be redistributed in whole or significant part.
   ------------------------------------------------------------------------- */
 if (version_compare(Mage::getVersion(), '1.9.2.2', '>=')) {
-
     $installer = $this;
     $installer->startSetup();
 

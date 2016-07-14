@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
 	<modules>
-		<SmartLap_Createcate>
-			<active>true</active>
+		<SmartLab_Staticblock>
+			<active>false</active>
 			<codePool>local</codePool>
-		</SmartLap_Createcate>
+		</SmartLab_Staticblock>
 	</modules>
 </config>
