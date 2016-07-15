@@ -1,70 +1,124 @@
 <?php
 
 /**
- * NeoTheme (Neo Industries Pty Ltd)
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to Neo Industries Pty LTD Non-Distributable Software Modification License (NDSML)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://www.neotheme.com/legal/licenses/NDSM.html
- * If the license is not included with the package or for any other reason, 
- * you did not receive your licence please send an email to 
- * license@neotheme.com so we can send you a copy immediately.
- *
- * This software comes with no warrenty of any kind. By Using this software, the user agrees to hold 
- * Neo Industries Pty Ltd harmless of any damage it may cause.
- *
- * @category    modules
- * @module      NeoTheme_Blog
- * @copyright   Copyright (c) 2011 Neo Industries Pty Ltd (http://www.neotheme.com)
- * @license     http://www.neotheme.com/  Non-Distributable Software Modification License(NDSML 1.0)
+
  */
 class SmartLab_Blog_MyblogController extends Mage_Core_Controller_Front_Action
 {
-
-    public function indexAction(){
+    // display myblog
+    public function indexAction()
+    {
         $this->loadLayout();
         $this->renderLayout();
+//        $stores = Mage::app()->getStores();
+//        $a= array();
+//        foreach ($stores as $storeId => $store)
+//        {
+//            array_push($a, $storeId);
+//
+//        }
+//        var_dump($a);die;
     }
-
+    // display detail of a post
     public function ViewAction()
     {
         $this->loadLayout();
         $this->renderLayout();
     }
-
+    // display form add new post
     public function addNewAction()
     {
         $this->loadLayout();
         $this->renderLayout();
     }
-
+    // save new post action
     public function CreatePostAction()
     {
-        $data = $this->getRequest()->getPost();
-        $post = Mage::getModel('blog/post');
-//        var_dump($data);die();
-         $post->setData($data);
-        try
+        if (Mage::getSingleton('customer/session')->isLoggedIn())
         {
-            $post->save();
-        }
-        catch(Exceptiion $e)
-        {
-        }
-        $this->_redirect('blog/myblog/index');
-    }
+            $data = $this->getRequest()->getPost();
+            $post = Mage::getModel('blog/post');
+            $post->setData($data);
+            //var_dump($data);die();
+            try
+            {
+                $post->save();
+            }
+            catch(Exceptiion $e)
+            {
+                print_r($e);
+            }
+            $cust_id="";
 
+            // Load the customer's data
+            $customer = Mage::getSingleton('customer/session')->getCustomer();
+            $cust_id = $customer->getId(); // Full Name
+            //get Id of new post
+            $postOption = Mage::getModel('blog/post')->load($post->getId());
+            $post_id = $postOption->getId();
+            $custpost = Mage::getModel('blog/custpost');
+    //        var_dump($post_id);die;
+            $custpost->setData('customer_id',$cust_id);
+            $custpost->setData('post_id', $post_id);
+            try
+            {
+                $custpost->save();
+                Mage::getSingleton('core/session')->addSuccess(Mage::helper('blog')->__('Post was successfully posted'));
+            }
+            catch(Exception $e)
+            {
+                print_r($e);
+            }
+            $this->_redirect('blog/myblog/index');
+        }
+
+    }
+    // display form edit of a post
     public function editAction()
     {
         $this->loadLayout();
         $this->renderLayout();
     }
+    // save edit post action
     public function editPostAction()
     {
-
+        if (Mage::getSingleton('customer/session')->isLoggedIn())
+        {
+            if (null != Mage::app()->getRequest()->getPost())
+            {
+//            Neu co request Post thi vao form edit
+                $info = Mage::app()->getRequest()->getPost();
+                $model = Mage::getModel('blog/post');
+                $model->setData($info);
+                try {
+                    $model->save();
+                    Mage::getSingleton('core/session')->addSuccess(Mage::helper('blog')->__('Post was successfully edited'));
+                    $this->_redirect('blog/myblog/index');
+                } catch (Exception $e) {
+                    Mage::getSingleton('core/session')->addError($e->getMessage());
+                }
+            }
+        }
     }
+    // delete post action
+    public function deleteAction()
+    {
+        if (Mage::getSingleton('customer/session')->isLoggedIn())
+        {
+            if ($this->getRequest()->getParam('id') > 0) {
+                try {
+                    $model = Mage::getModel('blog/post');
 
+                    $model->setId($this->getRequest()->getParam('id'))
+                        ->delete();
+
+                    Mage::getSingleton('core/session')->addSuccess(Mage::helper('blog')->__('Post was successfully deleted'));
+                    $this->_redirect('*/*/index');
+                } catch (Exception $e) {
+                    Mage::getSingleton('core/session')->addError($e->getMessage());
+                }
+                $this->_redirect('blog/myblog/index');
+            }
+        }
+    }
 }

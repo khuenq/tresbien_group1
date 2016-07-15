@@ -10,7 +10,8 @@ class SmartLab_Blog_Block_Account_Myblog_Myblog
         $this->setCollection($collection);
         $this->setTitle('My blog');
     }
-    public function getPostCollection() {
+    public function getPostCollection()
+    {
         // Check if any customer is logged in or not
         if (Mage::getSingleton('customer/session')->isLoggedIn())
         {
@@ -18,13 +19,26 @@ class SmartLab_Blog_Block_Account_Myblog_Myblog
             $customer = Mage::getSingleton('customer/session')->getCustomer();
             $author = $customer->getName(); // Full Name
             $collection = Mage::getModel('blog/post')->getCollection()->addFieldToFilter('author', $author);
+//            var_dump($collection);die;
+//            $collection = "";
+//                $customer = Mage::getSingleton('customer/session')->getCustomer();
+//                $cust_id = $customer->getId();
+//                $custPostOption = Mage::getModel('blog/custpost')->getCollection()->addFieldToFilter('customer_id', $cust_id);
+//                $listPostId = array();
+//            var_dump($this->getData('post_id'));die;
+//            //                array_push($listPostId, $custPostOption->getData('post_id')); var_dump($listPostId);die;
+//                foreach ($custPostOption as $postId)
+//                {
+//                    array_push($collection,$this->getData('post_id'));var_dump($listPostId);die;
+//                }
         }
         return $collection;
     }
+
     //prepare layout
     public function _prepareLayout() {
         parent::_prepareLayout();
-        $pager = $this->getLayout()->createBlock('page/html_pager', 'blog.pager')->setCollection($this->getPostCollection());
+        $pager = $this->getLayout()->createBlock('page/html_pager', 'blog.pager')->setCollection($this->getCollection());
         $this->setChild('pager', $pager);
         return $this;
     }
@@ -82,5 +96,9 @@ class SmartLab_Blog_Block_Account_Myblog_Myblog
     public function getEditUrl($post)
     {
         return $this->getUrl('*/*/edit', array('id' => $post->getId()));
+    }
+    public function getDeleteUrl($post)
+    {
+        return $this->getUrl('*/*/delete', array('id' => $post->getId()));
     }
 }

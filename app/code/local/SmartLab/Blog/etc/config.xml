@@ -27,12 +27,37 @@
         <models>
             <blog>
                 <class>SmartLab_Blog_Model</class>
-                <resourceModel>album_resource</resourceModel>
+                <resourceModel>blog_resource</resourceModel>
             </blog>
             <blog_resource>
                 <class>SmartLab_Blog_Model_Resource</class>
+                <entities>
+                    <custpost>
+                        <table>neotheme_customer_post</table>
+                    </custpost>
+                </entities>
             </blog_resource>
         </models>
+        <resources>
+            <blog_setup>
+                <setup>
+                    <module>SmartLab_Blog</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </blog_setup>
+            <blog_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </blog_write>
+            <blog_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </blog_read>
+        </resources>
         <blocks>
             <blog>
                 <class>SmartLab_Blog_Block</class>
