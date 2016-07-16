@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-	<modules>
-		<SmartLap_Createcate>
-			<active>true</active>
-			<codePool>local</codePool>
-		</SmartLap_Createcate>
-	</modules>
-</config>
