@@ -128,3 +128,6 @@ shell/
 lib/
 dev/
 .idea/
+app/code/local/Opencommercellc/
+app/etc/modules/Opencommercellc_Commercebug.xml
+js/commercebug/
