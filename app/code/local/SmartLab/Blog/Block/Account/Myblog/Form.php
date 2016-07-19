@@ -1,6 +1,6 @@
 <?php
-class SmartLab_Blog_Block_Account_Myblog_Form
-    extends Mage_Core_Block_Template
+
+class SmartLab_Blog_Block_Account_Myblog_Form extends Mage_Core_Block_Template
     implements Mage_Widget_Block_Interface
 {
     function __construct()

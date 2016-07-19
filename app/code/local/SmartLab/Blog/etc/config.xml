@@ -2,7 +2,7 @@
 <config>
     <modules>
         <SmartLab_Blog>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </SmartLab_Blog>
     </modules>
     <frontend>
@@ -35,6 +35,12 @@
                     <custpost>
                         <table>neotheme_customer_post</table>
                     </custpost>
+                    <tag>
+                        <table>neotheme_blog_tag</table>
+                    </tag>
+                    <tagpost>
+                        <table>neotheme_tag_post</table>
+                    </tagpost>
                 </entities>
             </blog_resource>
         </models>
@@ -65,7 +71,7 @@
         </blocks>
         <helpers>
             <blog>
-            <class>SmartLab_Blog_Helper</class>
+                <class>SmartLab_Blog_Helper</class>
             </blog>
         </helpers>
     </global>

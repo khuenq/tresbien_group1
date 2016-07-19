@@ -1,11 +1,14 @@
 <?php
+/*
+ * run data script to add category of post allow customer to choose
+ */
 
 $installer = $this;
 $installer->startSetup();
 $stores = Mage::app()->getStores();
-foreach ($stores as $storeId => $store)
-{
-    $installer->run("
+foreach ($stores as $storeId => $store) {
+    if ($storeId != 1) {
+        $installer->run("
 
         INSERT INTO `neotheme_blog_category` (`status`, `name`, `store_ids`, `cms_identifier`, `root_template`)VALUES
         ('1', 'Foods and Beverages', '$storeId', 'food-beverage', 'one_column'),
@@ -15,6 +18,8 @@ foreach ($stores as $storeId => $store)
         ('1', 'Customized Meals', '$storeId', 'customized-meals', 'one_column');
 
         ");
+    }
 }
+
 
 $installer->endSetup();
