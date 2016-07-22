@@ -6,7 +6,7 @@ class SmartLab_Blog_Block_Account_Myblog_Form extends Mage_Core_Block_Template
     function __construct()
     {
         parent::__construct();
-        $collection = $collection = Mage::getModel('blog/post')->getCollection();
+        $collection = Mage::getModel('blog/post')->getCollection();
         $this->setCollection($collection);
         $this->setTitle();
     }

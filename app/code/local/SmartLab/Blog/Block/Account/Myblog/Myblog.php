@@ -24,12 +24,14 @@ class SmartLab_Blog_Block_Account_Myblog_Myblog extends Mage_Core_Block_Template
             $customer = Mage::getSingleton('customer/session')->getCustomer();
             $cust_id = $customer->getId();
             $custPostOption = Mage::getModel('blog/custpost')->getCollection()->addFieldToFilter('customer_id', $cust_id);
+                // can replace by id cus when create post post_date is automatic insert to database.
             // get list ID post by customer ID
             foreach ($custPostOption as $custPost) {
                 array_push($listPostId, $custPost->getData('post_id'));
             };
             // get post collection filter by ID post
-            $collection = Mage::getModel('blog/post')->getCollection()->addFieldToFilter('entity_id', array('in' => $listPostId));
+            $collection = Mage::getModel('blog/post')->getCollection()
+                ->addFieldToFilter('entity_id', array('in' => $listPostId))->setOrder('entity_id', 'desc');
         }
         return $collection;
     }
