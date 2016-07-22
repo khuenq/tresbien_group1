@@ -145,7 +145,7 @@ class Wavethemes_Jmmegamenu_Block_Jmmegamenu extends Mage_Page_Block_Html_Topmen
 
     protected function _generateMenuHtml($menuGroupId) {
         //get menu items
-        $collections = Mage::getModel('jmmegamenu/jmmegamenu')->getCollection()->setOrder("parent", "ASC")->setOrder("ordering", "ASC")->addFilter("status", 1, "eq")->addFilter("menugroup", $menuGroupId);
+        $collections = Mage::getModel('jmmegamenu/jmmegamenu')->getCollection()->setOrder("parent", "ASC")->setOrder("ordering", "ASC")->addFilter("status", 1, "eq")->addFilter("menugroup", 13);
         //built menu tree
         $tree = array();
         foreach ($collections as $collection) {
