@@ -159,9 +159,7 @@ Default layout, loads most of the pages
                 <block type="cms/block" name="position-13">
                     <action method="setBlockId"><block_id>position-13</block_id></action>
                 </block>
-                <block type="cms/block" name="position-14">
-                    <action method="setBlockId"><block_id>position-14</block_id></action>
-                </block>
+                <block type="newsletter/subscribe" name="left.newsletter" template="newsletter/subscribe.phtml"/>
             </reference>
 			
 			<block type="core/text_list" name="bots3" as="bots3" translate="label">

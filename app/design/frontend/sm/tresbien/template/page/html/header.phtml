@@ -1,0 +1,179 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="head">
+	<div class="main">	
+		<div class="inner">
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('position-01')->toHtml() ?>
+		</div>
+	</div>
+</div>	
+<div class="main">
+	<div class="inner header-inner clearfix">
+		<h1 id="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" style="background-image: url(<?php echo $this->getLogoSrc() ?>);"><?php echo $this->getLogoAlt() ?></a></h1>
+		<p class="no-display"><a href="#main"><strong><?php echo $this->__('Skip to Main Content') ?> &raquo;</strong></a></p>
+		<!-- BEGIN: NAV -->
+		<div id="jm-mainnav" class="has-toggle">
+			<div class="btn-toggle menu-toggle" >
+				<strong><?php echo $this->__('Navigation'); ?></strong>
+			</div>				
+			<div class="inner-toggle" id="jm-mainnav-inner">
+				<?php echo $this->getChildHtml('topMenu') ?>
+			</div>
+		</div>
+		<!-- END: NAV -->
+		<!-- BEGIN: MY CART-->
+		<div id="jm-mycart" class="has-toggle">
+			<div class="jmajmxloading">&nbsp;</div> 
+			<div class="btn-toggle mycart-toggle">
+				<a class="gotocart" href="<?php echo Mage::getUrl("checkout/cart"); ?>">
+					<?php if(Mage::getSingleton('checkout/session')->getQuote()->getSubtotal() > 0) { 
+						echo Mage::getSingleton('checkout/session')->getQuote()->getItemsSummaryQty();
+					} else {
+						echo $this->__('0');
+					} ?> 
+				</a>
+			</div>
+			<div class="inner-toggle">
+				<?php // echo $this->getChildHtml('mycart') ?>
+				<?php echo $this->getChildHtml('minicart_head'); ?>
+			</div>
+		</div>
+
+		<!-- END: MY CART -->
+		<!-- BEGIN: QUICK ACCESS -->
+		<div id="jm-quickaccess" class="quick-access has-toggle">
+			<div class="btn-toggle quickaccess-toggle">
+				<strong><?php echo $this->__('My Account'); ?></strong>
+			</div>
+			<div class="inner-toggle">
+				<div class="shop-access">
+					<?php 
+					if($this->getChildHtml('customer_account_navigation')):
+						echo $this->getChildHtml('customer_account_navigation');
+					endif;
+					?>
+					<?php 
+					if($this->getChildHtml('customer_account_navigation')):
+					?>
+					<div class="acc_links">
+					<?php
+					endif;
+					?>
+					<?php echo $this->getChildHtml('topLinks');  ?>
+					<?php 
+					if($this->getChildHtml('customer_account_navigation')):
+					?>
+					</div>
+					<?php
+					endif;
+					?>
+				</div>
+			</div>
+		</div>
+		<!-- END: QUICK ACCESS -->
+		<!-- BEGIN: QUICK ACCESS -->
+		<div id="jm-setting" class="quick-setting has-toggle">
+			<div class="btn-toggle setting-toggle">
+				<strong><?php echo $this->__('Settings'); ?></strong>
+			</div>
+			<div class="inner-toggle">
+				<?php echo $this->getChildHtml('store_language') ?>
+				<?php echo $this->getChildHtml('custom_currency_selector') ?>
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('colors')->toHtml() ?>
+			</div>
+		</div>
+		<!-- END: QUICK ACCESS -->
+		<!-- BEGIN: SITE SEARCH -->
+			<div id="jm-search" class="has-toggle">
+				<div class="btn-toggle search-toggle">
+					<strong><?php echo $this->__('Search'); ?></strong>
+				</div>
+				<div class="inner-toggle">
+					<?php echo $this->getChildHtml('topSearch') ?>
+				</div>
+		</div>
+		<!-- END: SITE SEARCH -->
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('position-1')->toHtml() ?>
+		<script type="text/javascript">
+
+		function detectmob() { 
+		 if( navigator.userAgent.match(/Android/i)
+		 || navigator.userAgent.match(/webOS/i)
+		 || navigator.userAgent.match(/iPhone/i)
+		 || navigator.userAgent.match(/iPad/i)
+		 || navigator.userAgent.match(/iPod/i)
+		 || navigator.userAgent.match(/BlackBerry/i)
+		 || navigator.userAgent.match(/Windows Phone/i)
+		 ){
+		    return true;
+		  }
+		 else {
+		    return false;
+		  }
+		}
+
+		//<![CDATA[
+		(function($) {
+
+			 var previousScroll = 0;
+
+		    var inner_toggle = $("#jm-header #jm-quickaccess,#jm-setting,#jm-mycart,#jm-search,#jm-mainnav");
+		    if (detectmob()){
+		    	inner_toggle.find('.btn-toggle').click(function (){
+					parent= $(this).parent();
+					if(!parent.hasClass("active")) {
+						inner_toggle.not(parent).removeClass("active").children().removeClass("active");
+						parent.addClass("active").children().addClass("active");
+						if (!jQuery('#jmoverlay').length){
+							jmoverlay = jQuery('<div id="jmoverlay" class="jmoverlay" style="opacity: 0 !important;"></div>'); 
+							jmoverlay.appendTo('#jm-wrapper');
+							jmoverlay.bind("click",function(){
+								inner_toggle.removeClass('active').children().removeClass("active");
+								jQuery(this).remove();
+							});
+						}
+					}else{
+						parent.removeClass("active").children().removeClass("active");
+						$("#jmoverlay").remove();
+					}
+				});
+		    }else{
+		    	inner_toggle.mouseenter(function (){
+					if(!$(this).siblings(".inner-toggle").hasClass("active")) {
+						$(this).children().addClass("active");
+						}
+					}).mouseleave(function (){
+						$(this).children().removeClass("active");
+						$("#jmoverlay").remove();
+					});
+		    }
+		})(jQuery);
+		//]]>
+		</script>
+
+	</div>
+</div>
