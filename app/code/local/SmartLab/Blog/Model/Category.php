@@ -1,4 +1,5 @@
 <?php
+
 class SmartLab_Blog_Model_Category extends NeoTheme_Blog_Model_Category
 {
 //    public function _construct(){
