@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <SmartLab_Blog>
-            <active>true</active>
-            <codePool>local</codePool>
-        </SmartLab_Blog>
-    </modules>
-</config> 
