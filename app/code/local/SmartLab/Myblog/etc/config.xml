@@ -49,9 +49,6 @@
                     <tag>
                         <table>neotheme_blog_tag</table>
                     </tag>
-                    <tagpost>
-                        <table>neotheme_tag_post</table>
-                    </tagpost>
                 </entities>
             </myblog_resource>
         </models>
@@ -82,6 +79,7 @@
             <neotheme_blog>
                 <rewrite>
                     <post_list>SmartLab_Myblog_Block_Post_List</post_list>
+                    <widget_post_list>SmartLab_Myblog_Block_Widget_Post_List</widget_post_list>
                 </rewrite>
             </neotheme_blog>
         </blocks>

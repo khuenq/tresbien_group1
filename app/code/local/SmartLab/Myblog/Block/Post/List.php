@@ -11,7 +11,7 @@ class SmartLab_Myblog_Block_Post_List extends Mage_Core_Block_Template implement
     function _construct()
     {
         $this->setTemplate('neotheme/blog/post/list.phtml');
-        $this->setSummaryBlockType('neotheme_blog/post_summary');
+        $this->setSummaryBlockType('myblog/post_summary');
         $this->setSummaryTemplate('smartlab/myblog/post/summary.phtml');
         //$this->addData(array(
         //    'cache_lifetime' => 1500,
@@ -55,8 +55,8 @@ class SmartLab_Myblog_Block_Post_List extends Mage_Core_Block_Template implement
             ->getCollection()
             ->addStoreFilter()
             ->addStatusFilter(NeoTheme_Blog_Model_Post::STATUS_ACTIVE)
-            ->addPublishFilter()
-            ->setOrder('entity_id', 'desc');
+            //->addPublishFilter();
+            ->setOrder('entity_id', 'DESC');
         if ($this->_showDrafts()) {
             $this->_collection->addStatusFilter(NeoTheme_Blog_Model_Post::STATUS_DRAFT);
         }
