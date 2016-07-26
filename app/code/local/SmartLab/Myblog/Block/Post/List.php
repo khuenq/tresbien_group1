@@ -10,9 +10,10 @@ class SmartLab_Myblog_Block_Post_List extends Mage_Core_Block_Template implement
 {
     function _construct()
     {
+
         $this->setTemplate('neotheme/blog/post/list.phtml');
         $this->setSummaryBlockType('myblog/post_summary');
-        $this->setSummaryTemplate('smartlab/myblog/post/summary.phtml');
+        $this->setSummaryTemplate('smartlab1/myblog/post/summary.phtml');
         //$this->addData(array(
         //    'cache_lifetime' => 1500,
         //    'cache_tags' => array(NeoTheme_Blog_Model_Post::CACHE_TAG, NeoTheme_Blog_Model_Category::CACHE_TAG),
@@ -143,7 +144,7 @@ class SmartLab_Myblog_Block_Post_List extends Mage_Core_Block_Template implement
         if (!$this->getLayout()->getBlock('post_summary_' . $post->getId())) {
             $post->setCurrentCategoryId($this->getCategoryId());
             $post_summary = $this->getLayout()->createBlock($this->getSummaryBlockType(), 'post_summary_' . $post->getId())
-                ->setTemplate("smartlab/myblog/post/summary.phtml")
+                ->setTemplate("smartlab1/myblog/post/summary.phtml")
                 ->setPost($post);
             $this->getLayout()->getBlock('post_summary_' . $post->getId());
         }
