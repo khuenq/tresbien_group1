@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SmartLab_AddAttribute>
+            <active>true</active>
+            <codePool>local</codePool>s
+        </SmartLab_AddAttribute>
+    </modules>
+</config>
