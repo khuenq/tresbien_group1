@@ -56,6 +56,7 @@ $installer->addAttribute('catalog_product', 'brand', array(
     'source'            => '',
     'visible'           => true,
     'required'          => true,
+    'user_defined'      => true,
     'is_configurable'   => false,
     'option' => 
   array (
@@ -79,12 +80,13 @@ $installer->addAttribute('catalog_product', 'brand', array(
 $installer->addAttribute('catalog_product', 'from_farm', array(
     'type'              => 'int',
     'frontend'          => '',
-    'label'             => 'Brand',
+    'label'             => 'From farm',
     'input'             => 'select',
     'class'             => '',
     'source'            => '',
     'visible'           => true,
     'required'          => true,
+    'user_defined'      => true,
     'is_configurable'   => false,
     'option' => 
   array (
@@ -101,12 +103,13 @@ $installer->addAttribute('catalog_product', 'from_farm', array(
 $installer->addAttribute('catalog_product', 'is_raw', array(
     'type'              => 'boolean',
     'frontend'          => '',
-    'label'             => 'Brand',
+    'label'             => 'Is raw',
     'input'             => 'select',
     'class'             => '',
     'source'            => '',
     'visible'           => true,
     'required'          => true,
+    'user_defined'      => true,
     'is_configurable'   => false,
     'option' => 
   array (
@@ -169,6 +172,7 @@ $installer->addAttribute('catalog_product', 'book_type', array(
     'source'            => '',
     'visible'           => true,
     'required'          => true,
+    'user_defined'      => true,
     'is_configurable'   => false,
     'option' => 
   array (
@@ -234,6 +238,7 @@ $installer->addAttribute('catalog_product', 'manufacture_country', array(
     'source'            => '',
     'visible'           => true,
     'required'          => false,
+    'user_defined'      => true,
     'is_configurable'   => false,
     'option' => 
   array (
