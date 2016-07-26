@@ -10,6 +10,6 @@ class SmartLab_Myblog_Block_Post_Summary extends Mage_Core_Block_Template implem
 {
     function _construct()
     {
-        $this->setTemplate('smartlab/myblog/post/summary.phtml');
+        $this->setTemplate('smartlab1/myblog/post/summary.phtml');
     }
 }
