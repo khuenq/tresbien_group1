@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <SmartLab_Baokim>
+      <version>0.1.0</version>
+    </SmartLab_Baokim>
+  </modules>
+  <global>
+    <events>
+      <sales_quote_save_before> <!-- Name of Event -->
+        <observers>
+          <save_before_baokim>
+            <type>singleton</type>
+            <class>SmartLab_Baokim_Model_Observer</class> <!-- Over Model Class -->
+            <method>saveQuoteBefore</method> <!-- name of function -->
+          </save_before_baokim>
+        </observers>
+      </sales_quote_save_before>
+    </events>
+    <models>
+      <baokim>
+        <class>SmartLab_Baokim_Model</class>
+      </baokim>
+    </models>
+    <helpers>
+      <baokim>
+        <class>SmartLab_Baokim_Helper</class>
+      </baokim>
+    </helpers>
+    <blocks>
+      <baokim>
+        <class>SmartLab_Baokim_Block</class>
+      </baokim>
+    </blocks>
+  </global>
+  <default>
+    <payment>
+      <baokim>
+        <model>baokim/standard</model>
+        <active>1</active>
+        <order_status>pending</order_status>
+        <title>Bao kim Payment</title>
+        <payment_action>sale</payment_action>
+        <allowspecific>0</allowspecific>
+        <sort_order>1</sort_order>
+      </baokim>
+    </payment>
+  </default>
+  <frontend>
+    <routers>
+      <baokim>
+        <use>standard</use>
+        <args>
+          <module>SmartLab_Baokim</module>
+          <frontName>baokim</frontName>
+        </args>
+      </baokim>
+    </routers>
+  </frontend>
+</config>
