@@ -33,7 +33,9 @@ document.observe('dom:loaded', function() {
         {
             alert('Must be agree term to continue');
             return;
-        }});
+        }
+        shippingMethod.save();
+    });
     // $$('input[type="radio"][id="s_method_custom_custom"]').each(function(el){
     //     Event.observe(el, 'click', function(){
     //         alert('kakaka');
