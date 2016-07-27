@@ -2,53 +2,28 @@
 
 /* Base settings */
 body#bd {
-	<?php if (isset($baseconfig["bgolor"]) && ($baseconfig["bgolor"])): ?>
-		background-color: <?php echo $baseconfig["bgolor"] ?>;
-	<?php endif;?>
-	<?php if (isset($baseconfig["bgimage"]) && ($baseconfig["bgimage"])): ?>
-		background-image:url("images/<?php echo $baseconfig["bgimage"]; ?>");
-	<?php endif;?>
-}
+			background-color: #222;
+		}
 
 #jm-header,
 #jm-wrapper {
-	<?php if (isset($baseconfig["wrappercolor"]) && ($baseconfig["wrappercolor"])): ?>
-		background: <?php echo $baseconfig["wrappercolor"] ?>;
-	<?php endif;?>
-	<?php /* if (isset($baseconfig["wrapperbg"]) && ($baseconfig["wrapperbg"])): ?>
-		background-image:url("images/<?php echo $baseconfig["wrapperbg"]; ?>");
-	<?php endif; */ ?>
-}
+			background: #fff;
+		}
 
 .head {
-	<?php if (isset($baseconfig["headbg"]) && ($baseconfig["headbg"])): ?>
-		background-image:url("images/<?php echo $baseconfig["headbg"]; ?>");
-	<?php endif;?>
-	<?php if (isset($baseconfig["headcolor"]) && ($baseconfig["headcolor"])): ?>
-		background-color: <?php echo $baseconfig["headcolor"] ?>;
-	<?php endif;?>
-}
+				background-color: #111;
+	}
 
 #jm-header {
-	<?php if (isset($baseconfig["headerimage"]) && ($baseconfig["headerimage"])): ?>
-		background-image:url("images/<?php echo $baseconfig["headerimage"]; ?>");
-	<?php endif;?>
-	<?php if (isset($baseconfig["headerolor"]) && ($baseconfig["headerolor"])): ?>
-		background-color: <?php echo $baseconfig["headerolor"] ?>;
-	<?php endif;?>
-}
+				background-color: #d0a768;
+	}
 
 #jm-bots2,
 #jm-bots3,
 #jm-bots3 .social-list,
 #jm-footer {
-	<?php if (isset($baseconfig["footerimage"]) && ($baseconfig["footerimage"])): ?>
-		background-image:url("images/<?php echo $baseconfig["footerimage"]; ?>");
-	<?php endif;?>
-	<?php if (isset($baseconfig["footerolor"]) && ($baseconfig["footerolor"])): ?>
-		background-color: <?php echo $baseconfig["footerolor"] ?>;
-	<?php endif;?>
-}
+				background-color: #111;
+	}
 
 
 
@@ -164,7 +139,7 @@ a,
 .no-route a:active,
 .no-route a:focus,
 .no-route a:hover {
-	color: <?php echo $baseconfig["color"] ?>;
+	color: #d0a768;
 }
 
 #jm-mycart .btn-toggle a,
@@ -198,7 +173,7 @@ button.button:focus,
 #button-btt,
 .jm-product-list div.item-more h3,
 #cboxClose { 
-	background-color: <?php echo $baseconfig["color"] ?>;
+	background-color: #d0a768;
 }
 
 
@@ -227,18 +202,16 @@ button.button:focus,
 .default .jm-tabs-title-top ul li.lastactive h3,
 .jm-megamenu .childcontent-inner,
 .block-cart .actions button.button {
-	border-color: <?php echo $baseconfig["color"] ?>;
+	border-color: #d0a768;
 }
 
 .jm-megamenu .childcontent-inner {
 	border-color: #000;	
 }
 
-<?php if (isset($baseconfig["flogo"]) && ($baseconfig["flogo"])): ?>
 #jm-footer .footerlogo {
-	background-image:url("images/<?php echo $baseconfig["flogo"]; ?>");
+	background-image:url("images/default/logo.png");
 }
-<?php endif;?>
 
 
 .product-shop .add-to-links li a.link-wishlist:active,
@@ -263,7 +236,7 @@ button.button:focus,
 .view-mode .grid,
 #cboxPrevious,
 #cboxNext {
-	background-image:url("images/<?php echo $baseconfig["icons"]; ?>");
+	background-image:url("images/default/icons.png");
 }
 
 
@@ -272,16 +245,11 @@ button.button:focus,
 .jm-masshead .jm-masshead-title:before,
 .cooking-with-love .cooking-title:before,
 .cooking-with-love .cooking-desc:before {
-	<?php if (isset($baseconfig["overlay"]) && ($baseconfig["overlay"])): ?>
-		background-image:url("images/<?php echo $baseconfig["overlay"]; ?>");
-	<?php endif;?>
-	<?php if (isset($baseconfig["overlaycolor"]) && ($baseconfig["overlaycolor"])): ?>
-		background-color: <?php echo $baseconfig["overlaycolor"] ?>;
-	<?php endif;?>
-}
+				background-color: #000;
+	}
 
 #jm-bots3 .social-list li {
-	background-image:url("images/<?php echo $baseconfig["socials"]; ?>");	
+	background-image:url("images/default/ico-socials.png");	
 }
 
 /*other*/
@@ -304,7 +272,7 @@ button.button:focus,
 }
 .jm-megamenu ul.level1 li.mega a.mega:hover,
 .jm-megamenu ul.level1 li.mega:hover > a.mega {
-	color: <?php echo $baseconfig["color"] ?>;
+	color: #d0a768;
 }
 
 .home-our-special .jm-product-list .products-grid .triangle-top-left {
@@ -329,7 +297,7 @@ button.button:focus,
 }
 
 .no-breadcrumbs {
-	border-color: <?php echo $baseconfig["color"] ?>;
+	border-color: #d0a768;
 }
 
 .home-our-special .products-grid .overimage {

@@ -1,11 +1,4 @@
-<?php
-	$mageFilename = "../../../../../../../../app/Mage.php";
-	require_once $mageFilename; 
-	umask(0);
-	Mage::app();
-	$baseconfig = Mage::helper("jmbasetheme")->getactiveprofile();
-	header("Content-type: text/css; charset: UTF-8");
-?>
+
 
 /* Base settings */
 body#bd {
