@@ -5,7 +5,7 @@ extends NeoTheme_Blog_Block_Post_List
 implements Mage_Widget_Block_Interface
 {	
     function _construct(){
-        $this->setTemplate('smartlab1/myblog/widget/post/list_block.phtml');
+        $this->setTemplate('smartlab/myblog/widget/post/list_block.phtml');
       //  $this->setSummaryBlockType('neotheme_blog/post_summary');
       //  $this->setSummaryTemplate('neotheme/blog/widget/post/summary.phtml');
         $this->setTitle('Latest Posts');
