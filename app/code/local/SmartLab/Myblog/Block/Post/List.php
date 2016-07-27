@@ -156,8 +156,10 @@ class SmartLab_Myblog_Block_Post_List extends Mage_Core_Block_Template implement
      */
     public function getPostCollection()
     {
+        $storeId = Mage::app()->getStore()->getStoreId();
         $tag = $this->getRequest()->getParam('name'); //var_dump($tag);die;
         $this->_postCollection = Mage::getModel('myblog/post')->getCollection()
+            ->addFieldToFilter('store_ids', $storeId)
             ->addFieldToFilter('tag_ids', array('like' => '%' . $tag . '%'))
             ->setOrder('entity_id', 'desc');
         return $this->_postCollection;

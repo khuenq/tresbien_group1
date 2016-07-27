@@ -140,10 +140,13 @@ class SmartLab_Myblog_MyblogController extends Mage_Core_Controller_Front_Action
                 // edit post and add tag again
                 $info = Mage::app()->getRequest()->getPost();
                 $tagString = $this->getRequest()->getParam('tag');
+                $tag = $this->tagOption($tagString);
+                $tagStringNew = implode(', ', $tag);
+
                 $this->addTag($tagString); // add tag to tag table
                 $model = Mage::getModel('myblog/post');
                 $model->setData($info);
-                $model->setData('tag_ids', $tagString); // add tag to field tag_ids in post table
+                $model->setData('tag_ids', $tagStringNew); // add tag to field tag_ids in post table
                 try {
                     $model->save();
                     Mage::getSingleton('core/session')->addSuccess(Mage::helper('myblog')->__('Post was successfully edited'));
