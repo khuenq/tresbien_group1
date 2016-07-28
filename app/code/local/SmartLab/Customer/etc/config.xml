@@ -1,0 +1,15 @@
+<?xml version="0.1.0"?>
+<config>
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <smartlab_customer before="Mage_Customer">Smartlab_Customer</smartlab_customer>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+
+</config>
