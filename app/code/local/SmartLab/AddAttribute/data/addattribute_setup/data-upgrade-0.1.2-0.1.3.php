@@ -15,7 +15,7 @@
 
 
 
-        for($i=4; $i<count($data); $i++){
+        for($i=1; $i<count($data); $i++){
         //Get id 
 	        $attributeSetId = Mage::getModel('eav/entity_attribute_set')
 	                    ->getCollection()
