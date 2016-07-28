@@ -2,7 +2,6 @@
 /*
  * run data script to add category of post allow customer to choose
  */
-
 $installer = $this;
 $installer->startSetup();
 $stores = Mage::app()->getStores();

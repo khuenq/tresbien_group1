@@ -2,7 +2,7 @@
 <config>
     <modules>
         <SmartLab_Myblog>
-            <version>0.1.1</version>
+            <version>0.1.4</version>
         </SmartLab_Myblog>
     </modules>
     <frontend>
