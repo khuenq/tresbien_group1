@@ -13,11 +13,10 @@
  *
  */
 
-class SmartLab_ProductType_Model_Product_Type_Digcerti extends Mage_Catalog_Model_Product_Type_Simple
+class SmartLab_ProductType_Model_Product_Type_Digcerti extends Mage_Catalog_Model_Product_Type_Abstract
 {
-	public function save($product = null)
-{
-    $option = array(
+	public function save($product= null){
+		$option = array(
         'title' => 'Level',
         'type' => 'drop_down',
         'is_require' => 1,
@@ -59,15 +58,20 @@ class SmartLab_ProductType_Model_Product_Type_Digcerti extends Mage_Catalog_Mode
           )
         )
     );
-
-
-    $product->setCanSaveCustomOptions(true);
-    $optionInstance = $product->getOptionInstance();
-    $optionInstance->unsetOptions();
-    $optionInstance->addOption($option);
-    $product->setHasOptions(true);
-    $optionInstance->setProduct($product);
-
-    return $this;
-}
+        //Add digcerti_level custom option if it's not exist
+        $productId=$product->getId();
+        $optionCount = Mage::getModel('catalog/product_option')->getCollection()
+                                                               ->addFieldToFilter('product_id', $productId)
+                                                               ->addFieldToFilter('sku', 'digcerti_level')
+                                                               ->count();
+        if($optionCount<1){
+            $product->setCanSaveCustomOptions(true);
+            $product->setHasOptions(1);
+            $optionInstance = $product->getOptionInstance();
+            $optionInstance->unsetOptions();
+            $optionInstance->addOption($option);
+            $optionInstance->setProduct($product);
+        }
+        return $this;
+	}
 }

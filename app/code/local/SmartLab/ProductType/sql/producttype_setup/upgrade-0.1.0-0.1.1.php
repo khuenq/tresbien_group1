@@ -10,7 +10,11 @@ CREATE TABLE {$this->getTable('digcode')} (
   `product_id` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `code_value` varchar(50) NOT NULL,
-  `voucher_id` int(11),
+  `voucher_code` varchar(50) NOT NULL,
+  `order_date` date NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`code_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     ");
