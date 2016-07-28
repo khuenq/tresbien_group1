@@ -33,8 +33,38 @@
                     </producttype_checkout>
                 </observers>
             </checkout_onepage_controller_success_action>
+             <catalog_controller_product_view>
+                <observers>
+                    <producttype_loadproduct>
+                        <class>SmartLab_ProductType_Model_Observer</class>
+                        <method>hookIntoGetFinalPrice</method>
+                    </producttype_loadproduct>
+                </observers>
+            </catalog_controller_product_view>
         </events>
     </frontend>
+
+    <admin>
+        <routers>
+            <producttypeadmin>
+                <use>admin</use>
+                <args>
+                    <module>SmartLab_ProductType</module>
+                    <frontName>producttypeadmin</frontName>
+                </args>
+            </producttypeadmin>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <producttype>
+                    <file>producttype.xml</file>
+                </producttype>
+            </updates>
+        </layout>
+    </adminhtml>   
     
     <global>
         <models>
@@ -93,6 +123,12 @@
                 </type>
 			</product>        
         </catalog>
+
+        <blocks>
+            <producttype>
+                <class>SmartLab_ProductType_Block</class>
+            </producttype>
+        </blocks>
 	</global>  
 	
 	<adminhtml>
