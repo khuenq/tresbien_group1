@@ -27,11 +27,9 @@
 /**
  * Customer account controller
  *
- * @category   Mage
- * @package    Mage_Customer
- * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
+require_once(Mage::getModuleDir('controllers','Mage_Customer').DS.'AccountController.php');
+class SmartLab_Customer_AccountController extends Mage_Customer_AccountController
 {
     /**
      * Action list where need check enabled cookie
